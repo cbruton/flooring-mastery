@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="io" class="com.breakout19.flooringmastery.ui.UserIOConsoleImpl"/>
+    
+    <bean id="orderDao" class="com.breakout19.flooringmastery.dao.FlooringMasteryOrderDaoFileImpl"/>
+   
+    <bean id="productDao" class="com.breakout19.flooringmastery.dao.FlooringMasteryProductDaoFileImpl"/>
+   
+    <bean id="taxDao" class="com.breakout19.flooringmastery.dao.FlooringMasteryTaxDaoFileImpl"/>
+    
+    <bean id="view" class="com.breakout19.flooringmastery.ui.FlooringMasteryView">
+        <constructor-arg ref="io"/>
+    </bean>
+    
+    <bean id="audit" class="com.breakout19.flooringmastery.dao.FlooringMasteryAuditDaoFileImpl"/>    
+   
+    <bean id="service" class="com.breakout19.flooringmastery.service.FlooringMasteryServiceLayerImpl">
+        <constructor-arg ref="orderDao"/>
+        <constructor-arg ref="productDao"/>
+        <constructor-arg ref="taxDao"/>
+        <constructor-arg ref="audit"/>
+    </bean>    
+
+    <bean id="controller" class="com.breakout19.flooringmastery.controller.FlooringMasteryController">
+        <constructor-arg ref="service"/>
+        <constructor-arg ref="view"/>
+    </bean>
+          
+</beans>

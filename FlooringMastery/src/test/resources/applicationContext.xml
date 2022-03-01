@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="orderDao" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryOrderDaoFileImpl"/>
+    
+    <bean id="taxDao" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryTaxDaoFileImpl"/>
+    
+    <bean id="productDao" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryProductDaoFileImpl"/>
+    
+    <bean id="orderDaoStub" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryOrderDaoStubImpl"/>
+    
+    <bean id="taxDaoStub" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryTaxDaoStubImpl"/>
+    
+    <bean id="productDaoStub" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryProductDaoStubImpl"/>
+    
+    <bean id="auditStub" 
+       class="com.breakout19.flooringmastery.dao.FlooringMasteryAuditDaoStubImpl"/>
+    
+    <bean id="serviceLayer" 
+       class="com.breakout19.flooringmastery.service.FlooringMasteryServiceLayerImpl">
+        <constructor-arg ref="orderDaoStub"/>
+        <constructor-arg ref="productDaoStub"/>
+        <constructor-arg ref="taxDaoStub"/>
+        <constructor-arg ref="auditStub"/>      
+    </bean>
+          
+</beans>

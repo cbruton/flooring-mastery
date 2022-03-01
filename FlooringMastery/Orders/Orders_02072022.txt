@@ -1,0 +1,5 @@
+OrderNumber,CustomerName,State,TaxRate,ProductType,Area,CostPerSquareFoot,LaborCostPerSquareFoot,MaterialCost,LaborCost,Tax,Total
+1,sarah ammoura,CA,25.00,Wood,250,5.15,4.75,26.52,22.56,12.50,37.50
+2,Markus,TX,4.45,Carpet,125,2.25,2.10,5.06,4.41,0.40,1.20
+3,Josh A.,WA,9.25,Tile,150,3.50,4.15,12.25,17.22,1.71,5.13
+4,Jessy,WA,9.25,Carpet,50,2.25,2.10,5.06,4.41,1.71,5.13
